@@ -3,6 +3,11 @@
 :root {
     --header-bg: rgba(111, 120, 248, 1);
     --text-color: #fff;
+    --color-primary: #055C9D;
+    --color-dark: #003060;
+    --color-light: #0E86D4;
+    --color-lite: #68BBE3;
+    --bg-container: #d9e4ec;
 }
 .App{
     margin: 0;

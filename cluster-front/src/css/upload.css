@@ -1,0 +1,251 @@
+.upload-container {
+    background-color: var(--bg-container);
+    max-width: 450px;
+    width: 90%;
+    height: 70vh;
+    margin: 40px auto;
+    border-radius: 10px;
+    box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.5);
+}
+
+.upload-caption {
+    width: 100%;
+    height: 60px;
+    background-color: var(--color-primary);
+    border-radius: 10px 10px 0 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.upload-caption h4 {
+    color: var(--text-color);
+    font-weight: 400;
+    font-size: 1.2rem;
+    letter-spacing: 0.5px;
+}
+
+.upload-container form {
+    width: 100%;
+    height: calc(70vh - 100px);
+    display: grid;
+    grid-template-rows: auto 110px;
+    gap: 10px;
+}
+
+.upload-label {
+    display: grid;
+    grid-template-rows: auto 50px;
+    gap: 10px;
+    margin: 5px;
+    overflow: hidden;
+}
+
+.upload-label label {
+    display: flex;
+    width: 99%;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    font-weight: 500;
+    border: 2px dashed var(--color-primary);
+    color: var(--color-primary);
+    border-radius: 10px;
+    white-space: pre-wrap;
+    overflow: hidden;
+}
+
+.upload-label label h4 {
+    width: 100%;
+    height: 100%;
+    margin: 10px;
+    font-weight: 500;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.upload-label label:hover {
+    background-color: var(--color-primary);
+    color: var(--text-color);
+    cursor: pointer;
+}
+
+.meta-info {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    align-items: center;
+    overflow: hidden;
+}
+
+.meta-info h6 {
+    margin: 0 2px;
+    font-size: 0.9rem;
+    font-weight: 300;
+    color: var(--color-primary);
+}
+
+.meta-info h6:last-child {
+    text-align: end;
+}
+
+.upload-btn {
+    margin: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.upload-btn input[type="submit"] {
+    width: 140px;
+    height: 50px;
+    background-color: transparent;
+    border: 2px solid var(--color-primary);
+    color: var(--color-primary);
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+    font-weight: 900;
+}
+
+.upload-btn input[type="submit"]:hover {
+    background-color: var(--color-primary);
+    color: var(--text-color);
+    cursor: pointer;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.upload-pro {
+    width: 90%;
+    height: 70vh;
+    margin: 40px auto;
+    border-radius: 10px;
+    background-color: var(--bg-container);
+    display: grid;
+    grid-template-rows: auto 60px 260px 60px;
+    gap: 10px;
+    overflow: hidden;
+    box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.5);
+}
+
+.file-name {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-primary);
+    color: var(--text-color);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.file-name h5 {
+    font-weight: 500;
+    font-size: 1rem;
+    letter-spacing: 1px;
+}
+
+.upload-status {
+    border: 3px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.upload-status h4 {
+    font-weight: 900;
+    font-size: 1.6rem;
+}
+
+.svg-pro {
+    position: relative;
+}
+
+svg {
+    width: 100%;
+    height: 100%;
+}
+
+svg circle {
+    fill: var(--bg-container);
+    stroke: var(--color-primary);
+    stroke-width: 40px;
+    stroke-dasharray: 503;
+    transform: rotate(270deg);
+    transform-origin: center;
+}
+
+.num-per {
+    background: transparent;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--color-primary);
+}
+
+.num-per h4 {
+    font-size: 1.4rem;
+    font-weight: 400;
+    letter-spacing: 1px;
+}
+
+.cancel-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cancel-btn button {
+    width: 140px;
+    height: 50px;
+    border: 3px solid rgb(255, 0, 0);
+    background: none;
+    font-size: 1.2rem;
+    font-weight: 900;
+    color: rgb(255, 0, 0);
+}
+
+.cancel-btn button:hover {
+    background-color: rgb(255, 0, 0);
+    color: var(--text-color);
+    cursor: pointer;
+}
+
+.pro-close {
+    position: absolute;
+    background-color: var(--color-primary);
+    width: 40px;
+    height: 40px;
+    margin: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    color: var(--text-color);
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.pro-close i {
+    font-size: 2rem;
+}
+
+@media screen and (max-width: 450px) {
+    .upload-btn input[type="submit"]{
+        background-color: var(--color-primary);
+        color: var(--text-color);
+    }
+    .cancel-btn button{
+        background-color: red;
+        color: var(--text-color);
+        font-weight: 500;
+        letter-spacing: 1.5px;
+    }
+}

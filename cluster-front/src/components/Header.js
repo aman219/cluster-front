@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import '../css/header.css'
 
 const Header = (props) => {
@@ -9,7 +9,7 @@ const Header = (props) => {
   }
   useEffect(()=>{
     bar === "fa-bars"?setLeft(200):setLeft(0)
-  },[bar])
+  },[bar, setLeft])
 
   return (
     <div className='header' >
