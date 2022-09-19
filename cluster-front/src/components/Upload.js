@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import '../css/upload.css'
 
 const xhr = new XMLHttpRequest()
+let url
 
 const Upload = () => {
 
@@ -23,29 +24,29 @@ const Upload = () => {
     event.preventDefault()
     setPro("grid")
     const formData = new FormData(event.target)
-    const url = 'http://192.168.1.11:8000/api/'
-    xhr.open('POST', url, true);
-    xhr.onreadystatechange = () => {
-      if (xhr.readyState === XMLHttpRequest.DONE) {
-        const status = xhr.status;
-        if (status === 0 || (status >= 200 && status < 400)) {
-          setStatus({ "text": "Success", "color": "green", "visiability": "visible" })
-          console.log(xhr.response)
-        } else {
-          console.log("error")
-        }
+    console.log(url)
+    xhr.open('POST', `/${url}`, true);
+    xhr.send(formData);
+    
+  }
+  xhr.onload = () => {
+      if (xhr.status === 200) {
+        setStatus({ "text": "Success", "color": "green", "visiability": "visible" })
+        console.log(xhr.response)
+      }
+      else{
+        setStatus({"text":`Error Code: ${xhr.status}`, "color":"yellow", "visiability":"visible"})
       }
     }
-    xhr.upload.onprogress = (event) => {
-      let now = (event.loaded / event.total) * 100
-      setOffset(503 - (503 * now) / 100)
-      setPronum(parseInt(now))
-    }
-    xhr.onerror = () => {
-      setStatus({ "text": "error", "color": "yellow", "visiability": "visible" })
-      console.log("error")
-    }
-    xhr.send(formData);
+  xhr.upload.onprogress = (event) => {
+    let now = (event.loaded / event.total) * 100
+    setOffset(503 - (503 * now) / 100)
+    setPronum(parseInt(now))
+  }
+
+  xhr.onerror = (event) => {
+    setStatus({ "text": "error", "color": "yellow", "visiability": "visible" })
+    console.log(event)
   }
   xhr.onabort = () => {
     setStatus({ "text": "Aborted", "color": "red", "visiability": "visible" })
@@ -66,6 +67,7 @@ const Upload = () => {
     let file = event.target.files[0]
     setLabel(file.name)
     setType(file.type)
+    url = file.type.slice(0, 6)
     setSize(`${(file.size / 1000000).toFixed(2)} MB`)
   }
 
@@ -82,7 +84,7 @@ const Upload = () => {
               <h6>Size: {size}</h6>
               <h6>Type: {type}</h6>
             </div>
-            <input type="file" name="file" id="file" onChange={handelFile} required />
+            <input type="file" name="file" id="file" accept='image/*, video/*, audio/*' onChange={handelFile} required />
           </div>
           <div className="upload-btn">
             <input type="submit" value="Upload" />

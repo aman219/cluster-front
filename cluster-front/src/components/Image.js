@@ -1,17 +1,43 @@
-import React from "react"
-import { Link } from "react-router-dom"
+import React, { useEffect, useState } from "react"
 import '../css/image.css'
-import photo from '../media/image/music.jpg'
 
 const Image = () => {
+
+    const [img, setImg] = useState([])
+
+    useEffect(() => {
+        const xhr = new XMLHttpRequest()
+        xhr.open("GET", '', true)
+        xhr.onload = () => {
+            if (xhr.status === 200) {
+                console.log(JSON.parse(xhr.response))
+                setImg(JSON.parse(xhr.response))
+            } else {
+                console.log("error code: ", xhr.status)
+            }
+        }
+        xhr.send()
+    }, []);
+    const fullScr=(event)=>{
+        if(!document.fullscreenElement){
+            event.target.requestFullscreen()
+        }else{
+            document.exitFullscreen()
+        }
+    }
+    const touchMov=(event)=>{
+        console.log("for touches")
+    }
     return (
         <div className="container">
             <div className="image-container">
-                <Link to="/dashboard/" >
-                    <div className="image-item">
-                        <img src={photo} alt="" />
-                    </div>
-                </Link>
+                {
+                    img.map((item, index) => {
+                        return<div className="image-item" key={index} onClick={fullScr} onTouchMove={touchMov} >
+                            <img src={item.src} alt="item" />
+                        </div>
+                    })
+                }
             </div>
         </div>
 

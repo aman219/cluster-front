@@ -48,7 +48,7 @@
 .storage-progress .storage-progress-fill{
     background-color: #6f78f8;
     height: 100%;
-    width: 80%;
+    transition: all 0.5s ease;
 }
 .visited-graph-container{
     width: 90%;

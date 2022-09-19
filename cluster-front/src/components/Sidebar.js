@@ -12,7 +12,7 @@ const Sidebar = (props) => {
   return (
     <div className='sidebar' style={{left:`-${props.left}px`}}>
       <ul onClick={changeEffect}>
-        <li><Link to="dashboard/"><i className="fa-solid fa-bars-progress"></i> <span>Dashboard</span></Link></li>
+        <li><Link to="/"><i className="fa-solid fa-bars-progress"></i> <span>Dashboard</span></Link></li>
         <li><Link to="audio/"><i className="fa-solid fa-headphones"></i><span>Audio</span></Link></li>
         <li><Link to="video/"><i className="fa-solid fa-video"></i><span>Video</span></Link></li>
         <li><Link to="image/"><i className="fa-regular fa-images"></i><span>Image</span></Link></li>

@@ -1,11 +1,31 @@
 import React, { useEffect, useState } from 'react'
 import '../css/dashboard.css'
 
+const xhr = new XMLHttpRequest()
+
 const Dashboard = () => {
 
   const [beam, setBeam] = useState([])
+  const [storage, setStorage] = useState({"free":"0 GB", "total":"0 GB", "width":"0"})
   useEffect(()=>{
     setBeam([0,25,35,84,65,48,87])
+    xhr.open("GET", "api/dashboard/")
+    xhr.onreadystatechange = () => {
+      if (xhr.readyState === XMLHttpRequest.DONE) {
+        const status = xhr.status;
+        if (status === 0 || (status >= 200 && status < 400)) {
+          let data = JSON.parse(xhr.response)
+          setStorage({"free": (data.free/1000000000).toFixed(2), 
+          "total": (data.total/1000000000).toFixed(2),
+          "width": (data.used/data.total)*100
+        })
+        } else {
+          console.log("error")
+        }
+      }
+    }
+
+    xhr.send()
   },[])
   return (
     <div className='container' >
@@ -14,10 +34,10 @@ const Dashboard = () => {
         <i className="fa-solid fa-hard-drive"></i>
         </div>
         <div className="storage-text">
-          <h5>33GB Free Of 300GB</h5>
+          <h5>{storage.free} Free Of {storage.total}</h5>
         </div>
         <div className="storage-progress">
-          <div className="storage-progress-fill"></div>
+          <div className="storage-progress-fill" style={{width: `${storage.width}%`}} ></div>
         </div>
       </div>
       <div className="visited-graph-container">
