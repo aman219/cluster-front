@@ -1,6 +1,5 @@
 import React from 'react'
-import { useEffect } from 'react'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import '../css/video.css'
 
@@ -13,7 +12,6 @@ const Video = () => {
     xhr.open("GET", "", true)
     xhr.onload = () => {
       if (xhr.status === 200) {
-        console.log(JSON.parse(xhr.response))
         setVideo(JSON.parse(xhr.response))
       } else {
         console.log("error code : ", xhr.status)

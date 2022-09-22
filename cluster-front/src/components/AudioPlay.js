@@ -24,7 +24,6 @@ const AudioPlay = () => {
     const fetchSong =(id)=>{
         elementRef.current.pause()
         const url = `/audio/${id}/`
-        console.log(url)
         const xhr = new XMLHttpRequest()
         xhr.open("GET", url, true)
         xhr.onload = () => {

@@ -12,6 +12,8 @@
 }
 .video-poster{
     overflow: hidden;
+    width: 100%;
+    aspect-ratio: 16/9;
 }
 .video-poster img{
     width: 100%;
