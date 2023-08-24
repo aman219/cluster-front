@@ -23,4 +23,4 @@ npm start
 - [ ] More AJAX and fetch network usage for better experince
 - [ ] new animation and UI
 
-#### I will add more interactive async feature like hls or dash media streaming and much more.
+### This project will act as NAS server (cluster) and NAS client (cluster-front) primarly on linux server on but it will also work on windows.
