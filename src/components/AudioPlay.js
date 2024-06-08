@@ -116,7 +116,7 @@ const AudioPlay = () => {
                     </div>
                 </div>
                 <div className="audio-source">
-                    <audio autoPlay={true} ref={elementRef} src={song.src} onPlay={played} onPause={paused} onTimeUpdate={timeUpdate} onLoadedMetadata={updateDuration} onLoadedData={()=>{elementRef.current.play()}} onEnded={ended} onError={()=>{setSong({"id": song.id+1})}} ></audio>
+                    <audio autoPlay={true} ref={elementRef} src={`${process.env.REACT_APP_SERVER}${song.src}`} onPlay={played} onPause={paused} onTimeUpdate={timeUpdate} onLoadedMetadata={updateDuration} onLoadedData={()=>{elementRef.current.play()}} onEnded={ended} onError={()=>{console.log("error while playing")}} ></audio>
                 </div>
             </div>
         </div>

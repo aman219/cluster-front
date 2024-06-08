@@ -9,7 +9,7 @@ const AudioList = () => {
 
   useEffect(() => {
     const xhr = new XMLHttpRequest()
-    xhr.open("GET", "", true)
+    xhr.open("GET", `${process.env.REACT_APP_SERVER}/audio/`, true)
     xhr.onload = () => {
       if (xhr.status === 200) {
         setSong(JSON.parse(xhr.response))

@@ -95,7 +95,7 @@ const VideoPlay = () => {
     <div className='container' >
       <div className="video-pl-cont" ref={container}>
         <div className="video-main">
-          <video ref={elementRef} src={item.src} onPlay={played} onPause={paused} onTimeUpdate={timeUpdate} onLoadedMetadata={updateDuration} onClick={showControls} onTouchStart={showControls} ></video>
+          <video ref={elementRef} src={`${process.env.REACT_APP_SERVER}${item.src}`} onPlay={played} onPause={paused} onTimeUpdate={timeUpdate} onLoadedMetadata={updateDuration} onClick={showControls} onTouchStart={showControls} ></video>
           <div className={`vid-controls ${cont}`}>
             <div className="duration">
               <div className="current-time"><h6>{current}</h6></div>

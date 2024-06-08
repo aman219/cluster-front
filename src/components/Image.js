@@ -7,7 +7,7 @@ const Image = () => {
 
     useEffect(() => {
         const xhr = new XMLHttpRequest()
-        xhr.open("GET", '', true)
+        xhr.open("GET", `${process.env.REACT_APP_SERVER}/image/`, true)
         xhr.onload = () => {
             if (xhr.status === 200) {
                 console.log(JSON.parse(xhr.response))
@@ -34,7 +34,7 @@ const Image = () => {
                 {
                     img.map((item, index) => {
                         return<div className="image-item" key={index} onClick={fullScr} onTouchMove={touchMov} >
-                            <img src={`${process.env.REACT_APP_SERVER}/item.src`} alt="item" />
+                            <img src={`${process.env.REACT_APP_SERVER}/${item.src}`} alt="item" />
                         </div>
                     })
                 }
