@@ -27,7 +27,7 @@ const Video = () => {
           return <Link to={`${item.id}/`} key={item.id} >
             <div className="video-container">
               <div className="video-poster">
-                <img src={`/${item.src}`} alt="poster" />
+                <img src={`${process.env.REACT_APP_SERVER}/${item.src}`} alt="poster" />
               </div>
               <div className="video-title">
                 <h5>{item.name}</h5>

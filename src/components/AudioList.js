@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import '../css/audiolist.css'
-import photo from '../media/image/music.jpg'
+// import photo from '../media/image/music.jpg'
 import { Link } from 'react-router-dom'
 
 const AudioList = () => {
@@ -29,7 +29,7 @@ const AudioList = () => {
           return <Link to={`${item.id}/`} key={item.id} >
             <div className="audio-list-item">
               <div className="audio-list-poster">
-                <img src={photo} alt="music-poster" />
+                {/* <img src={photo} alt="music-poster" /> */}
               </div>
               <div className="audio-list-title">
                 <h4>{item.name}</h4>

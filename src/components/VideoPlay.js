@@ -13,7 +13,7 @@ const VideoPlay = () => {
 
   useEffect(()=>{
       const xhr = new XMLHttpRequest()
-      xhr.open("GET", `/video/${id}/`, true)
+      xhr.open("GET", `${process.env.REACT_APP_SERVER}/video/${id}/`, true)
       xhr.onload=()=>{
           if(xhr.status===200){
               console.log(JSON.parse(xhr.response))

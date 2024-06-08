@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
-import music from '../media/image/music.jpg'
+// import music from '../media/image/music.jpg'
 import '../css/audioplay.css'
 
 let totalTime
@@ -23,7 +23,7 @@ const AudioPlay = () => {
     }, [song.id])
     const fetchSong =(id)=>{
         elementRef.current.pause()
-        const url = `/audio/${id}/`
+        const url = `${process.env.REACT_APP_SERVER}/audio/${id}/`
         const xhr = new XMLHttpRequest()
         xhr.open("GET", url, true)
         xhr.onload = () => {
@@ -92,7 +92,7 @@ const AudioPlay = () => {
                     <h5>{song.artist}</h5>
                 </div>
                 <div className="circle-poster">
-                    <img className={rotate} src={music} alt="poster" />
+                    {/* <img className={rotate} src={music} alt="poster" /> */}
                 </div>
                 <div className="duration">
                     <div className="current-time"><h6>{current}</h6></div>

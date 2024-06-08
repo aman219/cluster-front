@@ -8,8 +8,9 @@ const Dashboard = () => {
   const [beam, setBeam] = useState([])
   const [storage, setStorage] = useState({"free":"0 GB", "total":"0 GB", "width":"0"})
   useEffect(()=>{
+    console.log(process.env.REACT_APP_SERVER)
     setBeam([0,25,35,84,65,48,87])
-    xhr.open("GET", "api/dashboard/")
+    xhr.open("GET", `${process.env.REACT_APP_SERVER}/dashboard/`)
     xhr.onreadystatechange = () => {
       if (xhr.readyState === XMLHttpRequest.DONE) {
         const status = xhr.status;

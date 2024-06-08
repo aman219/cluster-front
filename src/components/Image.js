@@ -34,7 +34,7 @@ const Image = () => {
                 {
                     img.map((item, index) => {
                         return<div className="image-item" key={index} onClick={fullScr} onTouchMove={touchMov} >
-                            <img src={item.src} alt="item" />
+                            <img src={`${process.env.REACT_APP_SERVER}/item.src`} alt="item" />
                         </div>
                     })
                 }

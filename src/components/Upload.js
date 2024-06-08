@@ -25,7 +25,7 @@ const Upload = () => {
     setPro("grid")
     const formData = new FormData(event.target)
     console.log(url)
-    xhr.open('POST', `/${url}`, true);
+    xhr.open('POST', `${process.env.REACT_APP_SERVER}/${url}`, true);
     xhr.send(formData);
     
   }
