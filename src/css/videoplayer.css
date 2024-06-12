@@ -99,6 +99,23 @@ video{
     letter-spacing: 0.5px;
     color: rgb(109, 107, 107);
 }
+.delete-video {
+    background-color: rgb(250, 32, 32);
+    margin: 5px 10px;
+    width: 100px;
+    height: 40px;
+    text-align: center;
+    border-radius: 5px;
+    user-select: none;
+    cursor: pointer;
+}
+.delete-video h5 {
+    color: var(--text-color);
+    font-size: 22px;
+    margin: 0;
+    padding: 0;
+    font-weight: 400;
+}
 @media screen and (min-width:800px){
     .video-pl-cont{
         margin: 5px;

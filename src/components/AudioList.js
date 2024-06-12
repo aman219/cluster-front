@@ -22,20 +22,40 @@ const AudioList = () => {
 
   }, [])
 
+  const deleteAudio = (id) => {
+    console.log(`delete audio ${id}`)
+    const xhr = new XMLHttpRequest()
+    xhr.open("GET", `${process.env.REACT_APP_SERVER}/audio/delete/${id}/`, true)
+    xhr.onload = () => {
+      if (xhr.status === 200) {
+        console.log(xhr.response)
+      }
+      else {
+        console.log("error code : ", xhr.status)
+      }
+    }
+    xhr.send();
+  }
+
   return (
     <div className='container' >
       {
         song.map((item) => {
-          return <Link to={`${item.id}/`} key={item.id} >
-            <div className="audio-list-item">
-              <div className="audio-list-poster">
-                <img src={photo} alt="music-poster" />
+          return <div className="audio-list-bar" key={item.id}>
+            <Link to={`${item.id}/`}>
+              <div className="audio-list-item">
+                <div className="audio-list-poster">
+                  <img src={photo} alt="music-poster" />
+                </div>
+                <div className="audio-list-title">
+                  <h4>{item.name}</h4>
+                </div>
               </div>
-              <div className="audio-list-title">
-                <h4>{item.name}</h4>
-              </div>
+            </Link>
+            <div className="delete-btn" onClick={()=>{deleteAudio(item.id)}} >
+              <i className="fa-solid fa-trash"></i>
             </div>
-          </Link>
+          </div>
         })
       }
     </div>

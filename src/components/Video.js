@@ -21,7 +21,7 @@ const Video = () => {
   }, [])
 
   return (
-    <div className='container' >
+    <div className='container-list' >
       {
         video.map((item) => {
           return <Link to={`${item.id}/`} key={item.id} >

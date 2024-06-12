@@ -9,7 +9,6 @@ const Dashboard = () => {
   const [storage, setStorage] = useState({"free":"0 GB", "total":"0 GB", "width":"0"})
   useEffect(()=>{
     console.log(process.env.REACT_APP_SERVER)
-    setBeam([0,25,35,84,65,48,87])
     xhr.open("GET", `${process.env.REACT_APP_SERVER}/dashboard/`)
     xhr.onreadystatechange = () => {
       if (xhr.readyState === XMLHttpRequest.DONE) {
@@ -20,6 +19,7 @@ const Dashboard = () => {
           "total": (data.total/1000000000).toFixed(2),
           "width": (data.used/data.total)*100
         })
+          setBeam(data.beam)
         } else {
           console.log("error")
         }

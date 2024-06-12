@@ -91,6 +91,19 @@ const VideoPlay = () => {
     }
   }
 
+  const deleteVideo = () => {
+    const xhr = new XMLHttpRequest()
+    xhr.open("GET", `${process.env.REACT_APP_SERVER}/video/delete/${id}/`, true)
+    xhr.onload=()=>{
+        if(xhr.status===200){
+            console.log(xhr.response)
+        }else{
+            console.log("error code : ", xhr.status)
+        }
+    }
+    xhr.send(null)
+  }
+
   return (
     <div className='container' >
       <div className="video-pl-cont" ref={container}>
@@ -125,6 +138,9 @@ const VideoPlay = () => {
       </div>
       <div className="vid-detail">
         <h4>{item.name}</h4>
+      </div>
+      <div className="delete-video" onClick={deleteVideo}>
+        <h5>Delete</h5>
       </div>
     </div>
   )
