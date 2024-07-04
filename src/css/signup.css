@@ -1,0 +1,112 @@
+.signup-box {
+    border: 0.5px solid var(--text-color);
+    border-radius: 0.5rem;
+    width: 90%;
+    height: 550px;
+    margin: 10px auto;
+    min-width: 300px;
+}
+
+.signup-box form {
+    margin: 10px;
+    display: grid;
+}
+
+.signup-box form label {
+    color: var(--text-inactive);
+    font-weight: 200;
+}
+
+.signup-box form input[type=text],
+.signup-box form input[type=password],
+.signup-box form input[type=email]{
+    font-size: 1.2rem;
+    background: transparent;
+    border: none;
+    border-bottom: 0.5px solid var(--text-color);
+    color: var(--text-color);
+    height: 40px;
+}
+
+.signup-box form input[type=text]:focus,
+.signup-box form input[type=password]:focus,
+.signup-box form input[type=email]:focus{
+    outline: none;
+    border-color: var(--primary-cyan);
+    color: var(--primary-cyan);
+    font-size: 1.4rem;
+}
+
+#profile-field {
+    margin: 10px 0px;
+    height: 40px;
+    border: 0.2px solid var(--text-color);
+    border-radius: 5px;
+    align-content: center;
+    font-weight: 400;
+    padding: 0px 10px;
+    overflow: hidden;
+} 
+#profile-field span {
+    height: 100%;
+    border-left: 0.2px solid var(--text-color);
+    padding-left: 10px;
+    font-weight: 200;
+}
+
+#plan {
+    color: var(--text-color);
+    width: 100%;
+    height: 40px;
+    border-radius: 5px;
+    background: transparent;
+    margin: 10px auto;
+    border: 0.2px solid var(--text-color);
+}
+
+.signup-box form input[type=submit] {
+    background-color: transparent;
+    border: 0.3px solid var(--primary-cyan);
+    border-radius: 5px;
+    color: var(--primary-cyan);
+    width: 120px;
+    height: 40px;
+    margin: 10px auto;
+}
+
+.signup-box form input[type=submit]:hover {
+    background-color: var(--primary-cyan);
+    color: var(--text-color);
+    cursor: pointer;
+    font-weight: 300;
+}
+
+.login-box {
+    height: 50vh;
+    margin: 100px auto;
+}
+
+.login-box form input[type=submit] {
+    margin-top: 120px;
+}
+
+@media only screen and (min-width: 992px) {
+    .login-box {
+        width: 30%;
+        height: 60vh;
+    }
+
+    .signup-box form {
+        margin: 10px;
+        display: grid;
+        gap: 3px;
+    }
+    .signup-box {
+        width: 40%;
+        height: max-content
+    }
+    .signup-box form input[type=submit] {
+        font-size: 1.2rem;
+        font-weight: 500;
+    }
+} 

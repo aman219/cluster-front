@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { useState } from 'react';
 import './App.css';
+
 import Header from './components/Header';
 import Sidebar from './components/Sidebar';
 import Dashboard from './components/Dashboard'
@@ -14,6 +15,8 @@ import Quality from './components/Quality';
 import DeleteAccount from './components/DeleteAccount';
 import AudioPlay from './components/AudioPlay';
 import VideoPlay from './components/VideoPlay';
+import Signup from './components/Signup';
+import Login from './components/Login';
 
 function App() {
   const [left, setLeft] = useState(200)
@@ -25,7 +28,9 @@ function App() {
         <Header setLeft={setLeft} left={left} bar={bar} setBar={setBar} />
         <Sidebar left={left} setLeft={setLeft} setBar={setBar} />
         <Routes>
-          <Route path="/" element={<Dashboard/>} ></Route>
+          <Route path='/' element={<Login/>}></Route>
+          <Route path='signup/' element={<Signup/>}></Route>
+          <Route path="dashboard/" element={<Dashboard/>} ></Route>
           <Route path='audio/' element={<AudioList/>}></Route>
           <Route path='video/' element={<Video/>}></Route>
           <Route path='image/' element={<Image/>}></Route>

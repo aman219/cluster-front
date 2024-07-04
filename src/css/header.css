@@ -1,5 +1,5 @@
 .header {
-    background-color: var(--color-primary);
+    background-color: var(--header-bg);
     width: 100%;
     height: 60px;
     display: grid;
@@ -17,7 +17,7 @@
 
 .header-title h4 {
     display: inline;
-    color: var(--text-color);
+    color: var(--header-text-color);
     font-size: 2rem;
     font-weight: 600;
 }
@@ -28,10 +28,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    color: var(--text-color);
+    color: var(--header-text-inactive);
     font-size: 2.3rem;
     transition: all 0.5s ease;
     cursor: pointer;
+}
+.header i:hover {
+    color: var(--header-text-color);
 }
 .header-menu i{
     justify-content: flex-start;

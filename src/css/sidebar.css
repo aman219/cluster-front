@@ -1,5 +1,5 @@
 .sidebar{
-    background-color: var(--color-primary);
+    background-color: var(--primary-bg);
     position: fixed;
     top: 60px;
     min-height: 700px;
@@ -35,6 +35,7 @@
 .sidebar ul li a:hover{
     position: relative;
     left: 10px;
+    color: var(--primary-cyan);
 }
 .sidebar ul li:last-child{
     position: relative;
