@@ -10,13 +10,7 @@
     --primary-cyan: #3cd2a5;
     --red-border: #ff6060;
     --red-text: #e00000;
-    --red-bg: #ff6060;
-    /* --text-color: #fff;
-    --color-primary: #055C9D;
-    --color-dark: #003060;
-    --color-light: #0E86D4;
-    --color-lite: #68BBE3;
-    --bg-container: #d9e4ec; */
+    --red-bg: #ff6060; 
 }
 .App{
     margin: 0;

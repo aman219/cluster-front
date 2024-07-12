@@ -1,11 +1,11 @@
 .storage-bar-container{
-    background-color: var(--bg-container);
+    background-color: transparent;
     border-radius: 5px;
+    border: 0.5px solid var(--primary-cyan);
     width: 90%;
     height: 150px;
     margin: 20px auto;
     padding: 2px;
-    box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.5),-8px -8px 15px #6f78f846;
     display: grid;
     grid-template-areas: 
             "icon text"
@@ -24,7 +24,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    color: rgba(0, 0, 0, 0.8);
+    color: var(--text-color);
     font-size: 3rem;
 }
 .storage-text{
@@ -35,18 +35,18 @@
     overflow: hidden;
 }
 .storage-text h5{
-    color: rgba(0, 0, 0, 0.8);
+    color: var(--text-color);
     font-size: 1.2rem;
     font-weight: 600;
 }
 .storage-progress{
-    background-color: rgba(0, 0, 150, 0.01);
+    background-color: rgba(255, 255, 255, 0.01);
     border-radius: 5px;
     grid-area: progress;
     overflow: hidden;
 }
 .storage-progress .storage-progress-fill{
-    background-color: #6f78f8;
+    background-color: var(--primary-cyan);
     height: 100%;
     transition: all 0.5s ease;
 }
@@ -55,7 +55,6 @@
     height: 600px;
     margin: 40px auto;
     border-radius: 5px;
-    box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.5),-8px -8px 15px #6f78f846;
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     gap: 10px;
@@ -65,8 +64,7 @@
     overflow: hidden;
 }
 .vertical-bar{
-    background-color: var(--header-bg);
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5), -5px -5px 10px #6f78f846;
+    background-color: var(--primary-cyan);
     z-index: 2;
 }
 .visited-graph-container ul{
@@ -81,17 +79,16 @@
 }
 .visited-graph-container ul li{
     list-style: none;
-    border-bottom: 1px solid #000c66;
-    color: #000c66;
+    border-bottom: 1px solid var(--primary-cyan);
+    color: var(--text-color);
 }
 .bar-graph-bottom{
     width: 90%;
     height: 50px;
-    background-color: var(--bg-container);
-    box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.5),-8px -8px 15px #6f78f846;
+    border: 0.5px solid var(--primary-cyan);
     margin: 0 auto;
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #515361;
+    color: var(--text-color);
 }

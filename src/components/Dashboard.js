@@ -1,33 +1,40 @@
 import React, { useEffect, useState } from 'react'
 import '../css/dashboard.css'
+import { useNavigate } from 'react-router-dom'
 
-const xhr = new XMLHttpRequest()
 
 const Dashboard = () => {
 
-  const [beam, setBeam] = useState([])
-  const [storage, setStorage] = useState({"free":"0 GB", "total":"0 GB", "width":"0"})
+  const navigate = useNavigate();
+
+  const [beam, setBeam] = useState([10, 15, 25, 30, 25, 60, 20])
+  const [storage, setStorage] = useState({"free":"0 GB", "total":"0 GB", "width":"1"})
+
   useEffect(()=>{
-    console.log(process.env.REACT_APP_SERVER)
-    xhr.open("GET", `${process.env.REACT_APP_SERVER}/dashboard/`)
+    const xhr = new XMLHttpRequest()
+    xhr.open("GET", `${process.env.REACT_APP_SERVER}/api/v1/users/get/`)
     xhr.onreadystatechange = () => {
       if (xhr.readyState === XMLHttpRequest.DONE) {
         const status = xhr.status;
         if (status === 0 || (status >= 200 && status < 400)) {
           let data = JSON.parse(xhr.response)
-          setStorage({"free": (data.free/1000000000).toFixed(2), 
-          "total": (data.total/1000000000).toFixed(2),
-          "width": (data.used/data.total)*100
+          data = data.data
+          console.log(data)
+          const KBTOGB = 1024*1024;
+          setStorage({"free": (data.sizeAllocated-data.sizeUsed)/(KBTOGB).toFixed(2), 
+          "total": (data.sizeAllocated)/(KBTOGB).toFixed(2),
+          "width": (data.sizeUsed/data.sizeAllocated)*100
         })
-          setBeam(data.beam)
+          setBeam([10, 15, 25, 30, 25, 60, 20])
         } else {
           console.log("error")
+          navigate("/login")
         }
       }
     }
-
+    xhr.withCredentials = true
     xhr.send()
-  },[])
+  },[navigate])
   return (
     <div className='container' >
       <div className="storage-bar-container">
@@ -35,7 +42,7 @@ const Dashboard = () => {
         <i className="fa-solid fa-hard-drive"></i>
         </div>
         <div className="storage-text">
-          <h5>{storage.free} Free Of {storage.total}</h5>
+          <h5>{storage.free} GB Free Of {storage.total} GB </h5>
         </div>
         <div className="storage-progress">
           <div className="storage-progress-fill" style={{width: `${storage.width}%`}} ></div>

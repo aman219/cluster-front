@@ -75,7 +75,7 @@ const Upload = () => {
     <div className='container' >
       <div className="upload-container" style={{ display: from }} >
         <div className="upload-caption">
-          <h4>Upload Your File</h4>
+          <h4>Upload Your File</h4> 
         </div>
         <form method="post" encType="multipart/form-data" onSubmit={upload} ref={dataform} >
           <div className="upload-label">
