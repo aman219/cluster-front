@@ -23,10 +23,22 @@ const Upload = () => {
   const upload = (event) => {
     event.preventDefault()
     setPro("grid")
-    const formData = new FormData(event.target)
-    console.log(url)
-    xhr.open('POST', `${process.env.REACT_APP_SERVER}/${url}`, true);
-    xhr.send(formData);
+    const files = event.target.file.files
+    for (let i = 0; i<files.length; i++) {
+      handelFile(files[i])
+      console.log(url)
+      const formData = new FormData();
+      if (url === "image" || url === "audio" || url === "video") {
+        formData.append(url, files[i], files[i].name)
+        xhr.open('POST', `${process.env.REACT_APP_SERVER}/api/v1/${url}/upload/`, true);
+      } else {
+        formData.append("other", files[i], files[i].name)
+        xhr.open('POST', `${process.env.REACT_APP_SERVER}/api/v1/other/upload/`, true);
+      }
+      
+      xhr.withCredentials = true;
+      xhr.send(formData);
+    }
     
   }
   xhr.onload = () => {
@@ -63,12 +75,16 @@ const Upload = () => {
     setType("none")
     setLabel("Choose Your File")
   }
-  const handelFile = (event) => {
-    let file = event.target.files[0]
+  const handelFile = (file) => {
+    console.log(file)
     setLabel(file.name)
     setType(file.type)
-    url = file.type.slice(0, 6)
+    url = file.type.slice(0, 5)
     setSize(`${(file.size / 1000000).toFixed(2)} MB`)
+  }
+
+  const listFile = (event) => {
+    console.log(event.target.files)
   }
 
   return (
@@ -84,7 +100,7 @@ const Upload = () => {
               <h6>Size: {size}</h6>
               <h6>Type: {type}</h6>
             </div>
-            <input type="file" name="file" id="file" accept='image/*, video/*, audio/*' onChange={handelFile} required />
+            <input type="file" name="file" id="file" accept='image/*, video/*, audio/*' multiple onChange={listFile} required />
           </div>
           <div className="upload-btn">
             <input type="submit" value="Upload" />

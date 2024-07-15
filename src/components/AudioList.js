@@ -12,7 +12,7 @@ const AudioList = () => {
     xhr.open("GET", `${process.env.REACT_APP_SERVER}/audio/`, true)
     xhr.onload = () => {
       if (xhr.status === 200) {
-        setSong(JSON.parse(xhr.response))
+        setSong(JSON.parse(xhr.response).data)
       }
       else {
         console.log("error code : ", xhr.status)

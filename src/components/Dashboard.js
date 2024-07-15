@@ -21,7 +21,7 @@ const Dashboard = () => {
           data = data.data
           console.log(data)
           const KBTOGB = 1024*1024;
-          setStorage({"free": (data.sizeAllocated-data.sizeUsed)/(KBTOGB).toFixed(2), 
+          setStorage({"free": ((data.sizeAllocated-data.sizeUsed)/(KBTOGB)).toFixed(2), 
           "total": (data.sizeAllocated)/(KBTOGB).toFixed(2),
           "width": (data.sizeUsed/data.sizeAllocated)*100
         })

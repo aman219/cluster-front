@@ -23,7 +23,7 @@ const AudioPlay = () => {
     }, [song.id])
     const fetchSong =(id)=>{
         elementRef.current.pause()
-        const url = `${process.env.REACT_APP_SERVER}/audio/${id}/`
+        const url = `${process.env.REACT_APP_SERVER}/api/v1/audio/${id}/`
         const xhr = new XMLHttpRequest()
         xhr.open("GET", url, true)
         xhr.onload = () => {

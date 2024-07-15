@@ -7,16 +7,17 @@ const Image = () => {
 
     useEffect(() => {
         const xhr = new XMLHttpRequest()
-        xhr.open("GET", `${process.env.REACT_APP_SERVER}/image/`, true)
+        xhr.open("GET", `${process.env.REACT_APP_SERVER}/api/v1/image/get`, true)
         xhr.onload = () => {
             if (xhr.status === 200) {
-                console.log(JSON.parse(xhr.response))
-                setImg(JSON.parse(xhr.response))
+                console.log(JSON.parse(xhr.response).data)
+                setImg(JSON.parse(xhr.response).data)
             } else {
                 console.log("error code: ", xhr.status)
             }
         }
-        xhr.send()
+        xhr.withCredentials = true;
+        xhr.send(null)
     }, []);
     const fullScr=(event)=>{
         if(!document.fullscreenElement){
@@ -34,7 +35,7 @@ const Image = () => {
                 {
                     img.map((item, index) => {
                         return<div className="image-item" key={index} onClick={fullScr} onTouchMove={touchMov} >
-                            <img src={`${process.env.REACT_APP_SERVER}/${item.src}`} alt="item" />
+                            <img src={`${process.env.REACT_APP_SERVER}/${item.url.slice(6)}`} alt="item" />
                         </div>
                     })
                 }
