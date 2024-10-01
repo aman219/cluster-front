@@ -1,9 +1,23 @@
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+
+import Header from './components/Header.jsx'
+import Signup from './components/Signup.jsx'
+import Login from './components/Login.jsx'
+import Sidebar from './components/Sidebar.jsx'
 
 function App() {
 
   return (
     <>
-      <h1 className="text-3xl font-normal text-center text-white">Network attached server</h1>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Header />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/login" element={<Login />} />
+        </Routes>
+        <Sidebar />
+      </BrowserRouter>
+      
     </>
   )
 }
